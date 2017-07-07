@@ -1,0 +1,13 @@
+{
+  "name": "heroku-cli-color",
+  "version": "0.0.0",
+  "author": "Jeff Dickey",
+  "dependencies": {
+    "chalk": "^2.0.1"
+  },
+  "files": [
+    "color.js"
+  ],
+  "license": "ISC",
+  "main": "color.js"
+}
