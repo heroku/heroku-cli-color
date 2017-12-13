@@ -37,3 +37,5 @@ export const color: typeof CustomColors & typeof chalk = new Proxy(chalk, {
     return (<any>chalk)[name]
   },
 }) as typeof CustomColors & typeof chalk
+
+export default color
