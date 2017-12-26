@@ -1,5 +1,5 @@
 {
-  "name": "heroku-cli-color",
+  "name": "@heroku-cli/color",
   "description": "base CLI command for cli-engine",
   "version": "1.0.3",
   "author": "Jeff Dickey @jdxcode",
