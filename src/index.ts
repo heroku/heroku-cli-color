@@ -3,10 +3,9 @@ import chalk from 'chalk'
 import * as ansiStyles from 'ansi-styles'
 import { deprecate } from 'util'
 
-function stripColor(s: string): string {
+let stripColor = (s: string): string => {
   return require('strip-ansi')(s)
 }
-deprecate(stripColor, '.stripColor is deprecated. Please import the "strip-ansi" module directly instead.')
 
 export const CustomColors: {
   supports: typeof supports
@@ -38,7 +37,10 @@ export const CustomColors: {
     let has256 = color.supports.has256 || (process.env.TERM || '').indexOf('256') !== -1
     return has256 ? '\u001b[38;5;104m' + s + ansiStyles.reset.open : chalk.magenta(s)
   },
-  stripColor,
+  stripColor: deprecate(
+    stripColor,
+    '.stripColor is deprecated. Please import the "strip-ansi" module directly instead.',
+  ),
 }
 
 export const color: typeof CustomColors & typeof chalk = new Proxy(chalk, {
