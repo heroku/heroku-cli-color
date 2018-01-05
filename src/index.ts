@@ -20,6 +20,7 @@ export const CustomColors: {
   app: (s: string) => string
   heroku: (s: string) => string
   stripColor: (s: string) => string
+  enabled: boolean
 } = {
   supports,
   // map gray -> dim because it's not solarized compatible
@@ -42,10 +43,12 @@ export const CustomColors: {
     stripColor,
     '.stripColor is deprecated. Please import the "strip-ansi" module directly instead.',
   ),
+  enabled: true,
 }
 
 export const color: typeof CustomColors & typeof chalk = new Proxy(chalk, {
   get: (chalk, name) => {
+    if (!this.enabled) return s => s
     if ((<any>CustomColors)[name]) return (<any>CustomColors)[name]
     return (<any>chalk)[name]
   },
