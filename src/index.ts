@@ -33,11 +33,12 @@ export const CustomColors: {
     let has256 = color.supports.has256 || (process.env.TERM || '').indexOf('256') !== -1
     return has256 ? '\u001b[38;5;104m' + s + ansiStyles.reset.open : chalk.magenta(s)
   },
-  stripColor: (s: string) =>
-    deprecate(() => {
+  stripColor: (s: string) => {
+    return deprecate(() => {
       const stripAnsi = require('strip-ansi')
       return stripAnsi(s)
-    }, '.stripColor is deprecated. Please import the "strip-ansi" module directly instead.'),
+    }, '.stripColor is deprecated. Please import the "strip-ansi" module directly instead.')
+  },
 }
 
 export const color: typeof CustomColors & typeof chalk = new Proxy(chalk, {
