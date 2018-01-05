@@ -3,6 +3,11 @@ import chalk from 'chalk'
 import * as ansiStyles from 'ansi-styles'
 import { deprecate } from 'util'
 
+function stripColor(s: string): string {
+  return require('strip-ansi')(s)
+}
+deprecate(stripColor, '.stripColor is deprecated. Please import the "strip-ansi" module directly instead.')
+
 export const CustomColors: {
   supports: typeof supports
   gray: (s: string) => string
@@ -15,7 +20,7 @@ export const CustomColors: {
   pipeline: (s: string) => string
   app: (s: string) => string
   heroku: (s: string) => string
-  stripColor: (s: string) => any
+  stripColor: (s: string) => string
 } = {
   supports,
   // map gray -> dim because it's not solarized compatible
@@ -33,12 +38,7 @@ export const CustomColors: {
     let has256 = color.supports.has256 || (process.env.TERM || '').indexOf('256') !== -1
     return has256 ? '\u001b[38;5;104m' + s + ansiStyles.reset.open : chalk.magenta(s)
   },
-  stripColor: (s: string) => {
-    return deprecate(() => {
-      const stripAnsi = require('strip-ansi')
-      return stripAnsi(s)
-    }, '.stripColor is deprecated. Please import the "strip-ansi" module directly instead.')
-  },
+  stripColor,
 }
 
 export const color: typeof CustomColors & typeof chalk = new Proxy(chalk, {
