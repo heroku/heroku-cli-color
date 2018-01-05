@@ -1,6 +1,6 @@
-import * as supports from 'supports-color'
-import chalk from 'chalk'
 import * as ansiStyles from 'ansi-styles'
+import chalk from 'chalk'
+import * as supports from 'supports-color'
 import { deprecate } from 'util'
 
 let stripColor = (s: string): string => {
@@ -46,8 +46,18 @@ export const CustomColors: {
 
 export const color: typeof CustomColors & typeof chalk = new Proxy(chalk, {
   get: (chalk, name) => {
-    if ((<any>CustomColors)[name]) return (<any>CustomColors)[name]
-    return (<any>chalk)[name]
+    if ((CustomColors as any)[name]) return (CustomColors as any)[name]
+    return (chalk as any)[name]
+  },
+  set: (chalk, name, value) => {
+    switch (name) {
+      case 'enabled':
+        chalk.enabled = value
+        break
+      default:
+        throw new Error(`cannot set property ${name}`)
+    }
+    return true
   },
 }) as typeof CustomColors & typeof chalk
 
