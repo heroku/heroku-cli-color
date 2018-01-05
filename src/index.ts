@@ -2,7 +2,7 @@ import * as supports from 'supports-color'
 import chalk from 'chalk'
 import * as ansiStyles from 'ansi-styles'
 import { deprecate } from 'util'
-import * as stripAnsi from 'strip-ansi'
+const stripAnsi = require('strip-ansi')
 
 export const CustomColors: {
   supports: typeof supports
