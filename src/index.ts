@@ -16,6 +16,7 @@ export const CustomColors: {
 } = {
   supports,
   // map gray -> dim because it's not solarized compatible
+  // TODO: don't do this in windows
   gray: chalk.dim,
   grey: chalk.dim,
   attachment: chalk.cyan,
