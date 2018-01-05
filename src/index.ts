@@ -2,7 +2,6 @@ import * as supports from 'supports-color'
 import chalk from 'chalk'
 import * as ansiStyles from 'ansi-styles'
 import { deprecate } from 'util'
-const stripAnsi = require('strip-ansi')
 
 export const CustomColors: {
   supports: typeof supports
@@ -36,6 +35,7 @@ export const CustomColors: {
   },
   stripColor: (s: string) =>
     deprecate(() => {
+      const stripAnsi = require('strip-ansi')
       return stripAnsi(s)
     }, '.stripColor is deprecated. Please import the "strip-ansi" module directly instead.'),
 }
