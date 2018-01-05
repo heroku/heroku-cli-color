@@ -49,6 +49,16 @@ export const color: typeof CustomColors & typeof chalk = new Proxy(chalk, {
     if ((<any>CustomColors)[name]) return (<any>CustomColors)[name]
     return (<any>chalk)[name]
   },
+  set: (chalk, name, value) => {
+    switch (name) {
+      case 'enabled':
+        chalk.enabled = value
+        break
+      default:
+        throw new Error(`cannot set property ${name}`)
+    }
+    return true
+  },
 }) as typeof CustomColors & typeof chalk
 
 export default color
