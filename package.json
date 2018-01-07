@@ -11,7 +11,7 @@
     "supports-color": "^5.1.0"
   },
   "devDependencies": {
-    "@cli-engine/util": "^1.1.1",
+    "@cli-engine/util": "^1.1.2",
     "@heroku-cli/tslint": "^1.1.2",
     "@types/ansi-styles": "2.0.30",
     "@types/chalk": "2.2.0",
