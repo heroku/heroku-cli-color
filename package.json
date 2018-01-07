@@ -39,7 +39,7 @@
     "heroku-cli-plugin"
   ],
   "license": "ISC",
-  "main": "lib/index.js",
+  "main": "lib/color.js",
   "repository": "heroku/heroku-cli-color",
   "scripts": {
     "posttest": "cli-engine-util",
@@ -47,5 +47,5 @@
     "prepare": "cli-engine-util",
     "test": "jest"
   },
-  "types": "./lib/index.d.ts"
+  "types": "./lib/color.d.ts"
 }

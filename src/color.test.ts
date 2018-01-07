@@ -1,4 +1,6 @@
-import color from '.'
+import { inspect } from 'util'
+
+import color from './color'
 
 const win = process.platform === 'win32'
 
@@ -23,9 +25,9 @@ test('disabled', () => {
 
 test('app', () => {
   if (win) {
-    expect(color.app('foo')).toEqual('\u001b[35m⬢ foo\u001b[39m')
+    expect(inspect(color.app('foo'))).toEqual("'\\u001b[35m⬢ foo\\u001b[39m'")
   } else {
-    expect(color.app('foo')).toEqual('\u001b[38;5;104m⬢ foo\u001b[0m')
+    expect(inspect(color.app('foo'))).toEqual("'\\u001b[38;5;104m⬢ foo\\u001b[0m'")
   }
   color.enabled = false
   expect(color.app('foo')).toEqual('⬢ foo')
