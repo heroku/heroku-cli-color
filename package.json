@@ -11,19 +11,19 @@
     "supports-color": "^5.1.0"
   },
   "devDependencies": {
-    "@cli-engine/util": "^1.0.13",
+    "@cli-engine/util": "^1.1.1",
     "@heroku-cli/tslint": "^1.1.2",
     "@types/ansi-styles": "2.0.30",
     "@types/chalk": "2.2.0",
     "@types/jest": "^22.0.1",
-    "@types/node": "8.5.2",
+    "@types/node": "8.5.7",
     "@types/supports-color": "3.1.0",
     "del-cli": "1.1.0",
     "husky": "0.14.3",
     "jest": "^22.0.4",
     "lint-staged": "6.0.0",
     "prettier": "^1.9.2",
-    "ts-jest": "^22.0.0",
+    "ts-jest": "^22.0.1",
     "tslint": "^5.8.0",
     "typescript": "2.6.2"
   },
@@ -42,10 +42,9 @@
   "main": "lib/color.js",
   "repository": "heroku/heroku-cli-color",
   "scripts": {
-    "posttest": "cli-engine-util",
     "precommit": "cli-engine-util",
     "prepare": "cli-engine-util",
-    "test": "jest"
+    "test": "cli-engine-util"
   },
   "types": "./lib/color.d.ts"
 }
