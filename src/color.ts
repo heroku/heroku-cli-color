@@ -32,7 +32,7 @@ export const CustomColors: {
   release: chalk.blue.bold,
   cmd: chalk.cyan.bold,
   pipeline: chalk.green.bold,
-  app: (s: string) => color.heroku(`⬢ ${s}`),
+  app: (s: string) => process.env.HEROKU_HIDE_HEXAGON === '1' ? color.heroku(s) : color.heroku(`⬢ ${s}`),
   heroku: (s: string) => {
     if (!chalk.enabled) return s
     if (!color.supports) return s
