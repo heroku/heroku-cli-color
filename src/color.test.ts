@@ -26,7 +26,7 @@ test('disabled', () => {
 test('app', () => {
   expect(color.app('foo')).toEqual('\u001b[38;5;104m⬢ foo\u001b[0m')
   color.enabled = false
-  expect(color.app('foo')).toEqual('⬢ foo')
+  expect(color.app('foo')).toEqual('foo')
 })
 
 test('cannot set things', () => {
