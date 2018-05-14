@@ -7,10 +7,13 @@ let stripColor = (s: string): string => {
   return require('strip-ansi')(s)
 }
 
+const dim = process.env.ConEmuANSI === 'on' ? chalk.gray : chalk.dim
+
 export const CustomColors: {
   supports: typeof supports
   gray: (s: string) => string
   grey: (s: string) => string
+  dim: (s: string) => string
   attachment: (s: string) => string
   addon: (s: string) => string
   configVar: (s: string) => string
@@ -23,9 +26,9 @@ export const CustomColors: {
 } = {
   supports,
   // map gray -> dim because it's not solarized compatible
-  // TODO: don't do this in windows
-  gray: chalk.dim,
-  grey: chalk.dim,
+  gray: dim,
+  grey: dim,
+  dim,
   attachment: chalk.cyan,
   addon: chalk.yellow,
   configVar: chalk.green,
