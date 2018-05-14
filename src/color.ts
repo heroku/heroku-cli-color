@@ -39,7 +39,7 @@ export const CustomColors: {
   heroku: (s: string) => {
     if (!chalk.enabled) return s
     if (!color.supports) return s
-    let has256 = color.supports.has256 || (process.env.TERM || '').indexOf('256') !== -1
+    let has256 = color.supportsColor.has256 || (process.env.TERM || '').indexOf('256') !== -1
     return has256 ? '\u001b[38;5;104m' + s + ansiStyles.reset.open : chalk.magenta(s)
   },
   stripColor: deprecate(
