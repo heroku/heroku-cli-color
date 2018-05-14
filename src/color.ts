@@ -59,7 +59,7 @@ export const color: typeof CustomColors & typeof chalk = new Proxy(chalk, {
         chalk.enabled = value
         break
       default:
-        throw new Error(`cannot set property ${name}`)
+        throw new Error(`cannot set property ${name.toString()}`)
     }
     return true
   },
