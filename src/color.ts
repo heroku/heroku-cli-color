@@ -7,7 +7,7 @@ let stripColor = (s: string): string => {
   return require('strip-ansi')(s)
 }
 
-const dim = process.env.ConEmuANSI === 'on' ? chalk.gray : chalk.dim
+const dim = process.env.ConEmuANSI === 'ON' ? chalk.gray : chalk.dim
 
 export const CustomColors: {
   supports: typeof supports
