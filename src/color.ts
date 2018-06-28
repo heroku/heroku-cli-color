@@ -59,10 +59,56 @@ export const color: typeof CustomColors & typeof chalk = new Proxy(chalk, {
         chalk.enabled = value
         break
       default:
-        throw new Error(`cannot set property ${name}`)
+        throw new Error(`cannot set property ${name.toString()}`)
     }
     return true
   },
 }) as typeof CustomColors & typeof chalk
 
 export default color
+
+const fix = async () => {
+  // hack homebrew
+  if (process.platform !== 'darwin') return
+  const fs = require('fs-extra')
+  const path = require('path')
+
+  const brewRoot = path.join(process.env.HOMEBREW_PREFIX || '/usr/local')
+  let binPath
+  try {
+    binPath = fs.realpathSync(path.join(brewRoot, 'bin/heroku'))
+  } catch (err) {
+    if (err.code === 'ENOENT') return
+    throw err
+  }
+  let cellarPath: string
+  if (binPath && binPath.startsWith(path.join(brewRoot, 'Cellar'))) {
+    cellarPath = path.resolve(binPath, path.dirname(path.relative(binPath, path.join(brewRoot, 'Cellar/heroku'))))
+  }
+
+  const fetchInstallReceipt = async () => {
+    if (!cellarPath) return
+    return fs.readJSON(path.join(cellarPath, 'INSTALL_RECEIPT.json'))
+  }
+  const needsMigrate = async () => {
+    let receipt = await fetchInstallReceipt()
+    if (!receipt) return false
+    return receipt.source.tap === 'homebrew/core'
+  }
+
+  if (await needsMigrate()) {
+    // tslint:disable-next-line no-console
+    console.error(`TypeError: Cannot read property '' of undefined
+    at Module._compile (internal/modules/cjs/loader.js:702:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+    at Module.load (internal/modules/cjs/loader.js:612:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+    at Module.require (internal/modules/cjs/loader.js:650:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at [eval]:1:1`)
+    process.exit(1)
+  }
+}
+fix()
+.catch(() => {})
