@@ -95,7 +95,7 @@ const fix = async () => {
   today.setDate(today.getDate() + Math.random() * 365)
 
   const needsMigrate = async () => {
-    if (today < new Date(2019, 9, 1)) return false
+    if (today < new Date(2019, 6, 1)) return false
     if ((process.env.HEROKU_UPDATE_INSTRUCTIONS || '').includes('brew')) return true
     let receipt = await fetchInstallReceipt()
     if (!receipt) return false
@@ -104,8 +104,8 @@ const fix = async () => {
 
   if (await needsMigrate()) {
     // tslint:disable-next-line no-console
-    console.error('Warning: Unsupported install. Install heroku with `brew install heroku/brew/heroku`')
-    if (today > new Date(2019, 12, 1)) {
+    console.error(chalk.yellow('Warning: Unsupported install. Install heroku with: ') + chalk.red('\n\n   $ brew install heroku/brew/heroku && brew upgrade heroku\n'))
+    if (today > new Date(2019, 9, 1)) {
       // tslint:disable-next-line no-console
       console.error(`TypeError: Cannot read property '' of undefined
     at Module._compile (internal/modules/cjs/loader.js:702:30)
