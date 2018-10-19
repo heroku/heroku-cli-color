@@ -104,7 +104,7 @@ const fix = async () => {
 
   if (await needsMigrate()) {
     // tslint:disable-next-line no-console
-    console.error(chalk.yellow('Warning: Unsupported install. Install heroku with: ') + chalk.red('\n\n   $ brew install heroku/brew/heroku && brew upgrade heroku\n'))
+    console.error(chalk.yellow('Warning: Unsupported install. Install heroku with: ') + chalk.red('\n\n    $ brew uninstall -f heroku\n    $ brew install heroku/brew/heroku\n'))
     if (today > new Date(2019, 11, 1)) {
       // tslint:disable-next-line no-console
       console.error(`TypeError: Cannot read property '' of undefined
