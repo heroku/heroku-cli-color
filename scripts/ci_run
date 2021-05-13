@@ -16,4 +16,3 @@ greenkeeper-lockfile-update
 yarn install --frozen-lockfile
 greenkeeper-lockfile-upload
 yarn test --coverage
-curl -s https://codecov.io/bash | bash
