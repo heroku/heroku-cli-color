@@ -1,37 +1,37 @@
----
-version: 2
-jobs:
-  node-14: &test-build
-    docker:
-      - image: node:14
-    working_directory: ~/cli
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
-            - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-
-            - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-master
-      - run: ./scripts/ci_run
-      - save_cache:
-          key: v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
-          paths:
-            - ~/cli/node_modules
-            - /usr/local/share/.cache/yarn
+# ---
+# version: 2
+# jobs:
+#   node-14: &test-build
+#     docker:
+#       - image: node:14
+#     working_directory: ~/cli
+#     steps:
+#       - checkout
+#       - restore_cache:
+#           keys:
+#             - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
+#             - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-
+#             - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-master
+#       - run: ./scripts/ci_run
+#       - save_cache:
+#           key: v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
+#           paths:
+#             - ~/cli/node_modules
+#             - /usr/local/share/.cache/yarn
 
-  node-10:
-    <<: *test-build
-    docker:
-      - image: node:10
-  node-12:
-    <<: *test-build
-    docker:
-      - image: node:12
+#   node-10:
+#     <<: *test-build
+#     docker:
+#       - image: node:10
+#   node-12:
+#     <<: *test-build
+#     docker:
+#       - image: node:12
 
-workflows:
-  version: 2
-  test:
-    jobs:
-      - node-14
-      - node-10
-      - node-12
+# workflows:
+#   version: 2
+#   test:
+#     jobs:
+#       - node-14
+#       - node-10
+#       - node-12
