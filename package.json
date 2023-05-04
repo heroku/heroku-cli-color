@@ -41,7 +41,7 @@
   "main": "lib/color.js",
   "repository": "heroku/heroku-cli-color",
   "scripts": {
-    "prepare": "rm -rf lib && tsc",
+    "build": "rm -rf lib && tsc",
     "test": "jest"
   },
   "types": "./lib/color.d.ts"
