@@ -1,6 +1,6 @@
-# Project Name
+# heroku-cli-color
 
-A brief description of the project.
+heroku-cli-color`` is a command-line interface (CLI) tool for Heroku, a cloud platform for building, deploying, and managing applications. The project provides custom color options for the Heroku CLI using the chalk module.
 
 ## Installation
 
