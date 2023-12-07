@@ -1,14 +1,8 @@
 module.exports = {
-  setupTestFrameworkScriptFile: "<rootDir>/src/__test__/init.ts",
-  mapCoverage: true,
+  setupFilesAfterEnv: ["<rootDir>/src/__test__/init.ts"],
   moduleFileExtensions: ['ts', 'js'],
   testMatch: ['**/*.test.ts'],
   transform: {
-    '^.+\\.ts$': '<rootDir>/node_modules/ts-jest/preprocessor.js',
+    '^.+\\.ts$': 'ts-jest',
   },
-  globals: {
-    'ts-jest': {
-      skipBabel: true
-    }
-  }
 }
