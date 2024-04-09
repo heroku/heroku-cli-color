@@ -44,10 +44,11 @@ export const color: typeof CustomColors & typeof chalk = new Proxy(chalk, {
     if ((CustomColors as any)[name]) return (CustomColors as any)[name]
     return (chalk as any)[name]
   },
-  set: (chalk, name) => {
+  set: (chalk, name, value) => {
     switch (name) {
       case 'enabled':
-        chalk.level = 2
+        if (value) chalk.level = 2
+        else chalk.level = 0
         break
       default:
         throw new Error(`cannot set property ${name.toString()}`)
