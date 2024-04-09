@@ -1,11 +1,7 @@
 import * as ansiStyles from 'ansi-styles'
-import chalk from 'chalk'
 import * as supports from 'supports-color'
-import { deprecate } from 'util'
 
-let stripColor = (s: string): string => {
-  return require('strip-ansi')(s)
-}
+const chalk = require('chalk');
 
 const dim = process.env.ConEmuANSI === 'ON' ? chalk.gray : chalk.dim
 
@@ -22,7 +18,6 @@ export const CustomColors: {
   pipeline: (s: string) => string
   app: (s: string) => string
   heroku: (s: string) => string
-  stripColor: (s: string) => string
 } = {
   supports,
   // map gray -> dim because it's not solarized compatible
@@ -35,17 +30,13 @@ export const CustomColors: {
   release: chalk.blue.bold,
   cmd: chalk.cyan.bold,
   pipeline: chalk.green.bold,
-  app: (s: string) => chalk.enabled ? color.heroku(`⬢ ${s}`) : s,
+  app: (s: string) => chalk.level > 0 ? color.heroku(`⬢ ${s}`) : s,
   heroku: (s: string) => {
-    if (!chalk.enabled) return s
+    if (chalk.level === 0) return s
     if (!color.supports) return s
     let has256 = color.supportsColor.has256 || (process.env.TERM || '').indexOf('256') !== -1
     return has256 ? '\u001b[38;5;104m' + s + ansiStyles.reset.open : chalk.magenta(s)
   },
-  stripColor: deprecate(
-    stripColor,
-    '.stripColor is deprecated. Please import the "strip-ansi" module directly instead.',
-  ),
 }
 
 export const color: typeof CustomColors & typeof chalk = new Proxy(chalk, {
@@ -56,7 +47,8 @@ export const color: typeof CustomColors & typeof chalk = new Proxy(chalk, {
   set: (chalk, name, value) => {
     switch (name) {
       case 'enabled':
-        chalk.enabled = value
+        if (value) chalk.level = 2
+        else chalk.level = 0
         break
       default:
         throw new Error(`cannot set property ${name.toString()}`)

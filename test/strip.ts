@@ -1,5 +1,4 @@
-import color from '../src'
+import color from '../src/color'
 
 const output = color.red('foo')
 console.log(`red ${output}`)
-console.log(`strip ${color.stripColor(output)}`)

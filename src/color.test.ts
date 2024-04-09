@@ -32,8 +32,3 @@ test('app', () => {
 test('cannot set things', () => {
   expect(() => ((color as any).foo = 'bar')).toThrowError(/cannot set property foo/)
 })
-
-test('stripColor', () => {
-  expect(color.stripColor(color.red('foo'))).toEqual('foo')
-  expect(util.deprecate).toBeCalled()
-})
