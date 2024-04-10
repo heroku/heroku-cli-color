@@ -1,7 +1,7 @@
 {
   "name": "@heroku-cli/color",
   "description": "base CLI command for cli-engine",
-  "version": "1.1.16",
+  "version": "2.0.0",
   "author": "Heroku",
   "bugs": "https://github.com/heroku/heroku-cli-color/issues",
   "dependencies": {
@@ -16,11 +16,11 @@
     "@types/node": "14.18.63",
     "@types/supports-color": "5.3.0",
     "del-cli": "1.1.0",
+    "eslint": "^7.32.0",
     "jest": "^24.9.0",
     "lint-staged": "10.5.4",
     "prettier": "^2.8.8",
     "ts-jest": "^24.3.0",
-    "eslint": "^7.32.0",
     "typescript": "4.8.4"
   },
   "engines": {
