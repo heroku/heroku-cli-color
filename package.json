@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@types/jest": "^27.5.2",
-    "@types/node": "20.12.10",
+    "@types/node": "20.14.11",
     "@types/supports-color": "7.2.1",
     "eslint": "^7.32.0",
     "jest": "^27.5.1",
