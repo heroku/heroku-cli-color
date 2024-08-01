@@ -1,7 +1,7 @@
 import * as ansiStyles from 'ansi-styles'
 import * as supports from 'supports-color'
+import chalk from 'chalk'
 
-const chalk = require('chalk');
 
 const dim = process.env.ConEmuANSI === 'ON' ? chalk.gray : chalk.dim
 
