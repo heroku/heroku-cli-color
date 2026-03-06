@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.6](https://github.com/heroku/heroku-cli-color/compare/color-v2.0.5...color-v2.0.6) (2026-03-06)
+
+
+### Bug Fixes
+
+* **deps:** bump minimatch from 3.1.2 to 3.1.5 ([#148](https://github.com/heroku/heroku-cli-color/issues/148)) ([c415000](https://github.com/heroku/heroku-cli-color/commit/c4150000e6642e67658bf5a3c21cd3d5190023ea))
+
 ## [2.0.5](https://github.com/heroku/heroku-cli-color/compare/color-v2.0.4...color-v2.0.5) (2026-01-29)
 
 
