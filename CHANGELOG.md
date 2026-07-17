@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.7](https://github.com/heroku/heroku-cli-color/compare/color-v2.0.6...color-v2.0.7) (2026-07-17)
+
+
+### Dependencies
+
+* bump @babel/core from 7.28.5 to 7.29.7 ([#155](https://github.com/heroku/heroku-cli-color/issues/155)) ([f528635](https://github.com/heroku/heroku-cli-color/commit/f5286359b22d2005397e1797835e568fcda41b8e))
+* bump form-data from 3.0.4 to 3.0.5 ([#153](https://github.com/heroku/heroku-cli-color/issues/153)) ([431b8a5](https://github.com/heroku/heroku-cli-color/commit/431b8a5244c762e60fbfb81d7a11f78a2419a98e))
+* bump js-yaml from 3.14.2 to 3.15.0 ([#156](https://github.com/heroku/heroku-cli-color/issues/156)) ([c7830f8](https://github.com/heroku/heroku-cli-color/commit/c7830f8c359f270678847685513c792308820ba4))
+* bump ws from 7.5.10 to 7.5.12 ([#160](https://github.com/heroku/heroku-cli-color/issues/160)) ([3fc6100](https://github.com/heroku/heroku-cli-color/commit/3fc61003402f6cb45976b9b1231f31e78acfa072))
+
 ## [2.0.6](https://github.com/heroku/heroku-cli-color/compare/color-v2.0.5...color-v2.0.6) (2026-06-09)
 
 
