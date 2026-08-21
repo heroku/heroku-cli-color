@@ -1,6 +1,4 @@
-jest.mock('util')
-const util = require('util')
-util.deprecate.mockImplementation((fn: any) => (...args: any[]) => fn(...args))
+import {afterEach, beforeEach, expect, test} from 'vitest'
 
 import color from './color'
 
