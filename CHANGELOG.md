@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.8](https://github.com/heroku/heroku-cli-color/compare/color-v2.0.7...color-v2.0.8) (2026-08-21)
+
+
+### Dependencies
+
+* bump brace-expansion from 1.1.12 to 1.1.18 ([#164](https://github.com/heroku/heroku-cli-color/issues/164)) ([e0002a6](https://github.com/heroku/heroku-cli-color/commit/e0002a6c644ff306446277b77ac1470c7a8ce170))
+* bump js-yaml from 3.15.0 to 3.15.1 ([#162](https://github.com/heroku/heroku-cli-color/issues/162)) ([62e2f44](https://github.com/heroku/heroku-cli-color/commit/62e2f44d3444b0cffae174d853c06d743c786338))
+
 ## [2.0.7](https://github.com/heroku/heroku-cli-color/compare/color-v2.0.6...color-v2.0.7) (2026-07-17)
 
 
