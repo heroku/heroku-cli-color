@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.9](https://github.com/heroku/heroku-cli-color/compare/color-v2.0.8...color-v2.0.9) (2026-09-14)
+
+
+### Dependencies
+
+* bump ansi-styles from 4.3.0 to 7.0.0 ([#168](https://github.com/heroku/heroku-cli-color/issues/168)) ([3dc16a4](https://github.com/heroku/heroku-cli-color/commit/3dc16a4b7a9093f7a774818ab5291ed7a5fe577a))
+* bump supports-color from 7.2.0 to 11.0.0 ([#166](https://github.com/heroku/heroku-cli-color/issues/166)) ([43a2a5c](https://github.com/heroku/heroku-cli-color/commit/43a2a5c544f8f7fe89654d6fec6b42477fc059bd))
+* bump tslib from 1.14.1 to 2.8.1 ([#130](https://github.com/heroku/heroku-cli-color/issues/130)) ([fad067a](https://github.com/heroku/heroku-cli-color/commit/fad067a1ff78353be6525cb37a42107d8e9a695f))
+
 ## [2.0.8](https://github.com/heroku/heroku-cli-color/compare/color-v2.0.7...color-v2.0.8) (2026-08-21)
 
 
