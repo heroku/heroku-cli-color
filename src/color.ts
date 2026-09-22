@@ -1,4 +1,3 @@
-import * as ansiStyles from 'ansi-styles'
 import * as supports from 'supports-color'
 
 const chalk = require('chalk');
@@ -35,7 +34,9 @@ export const CustomColors: {
     if (chalk.level === 0) return s
     if (!color.supports) return s
     let has256 = color.supportsColor.has256 || (process.env.TERM || '').indexOf('256') !== -1
-    return has256 ? '\u001b[38;5;104m' + s + ansiStyles.reset.open : chalk.magenta(s)
+    // '\u001b[0m' is the ANSI reset sequence (ansi-styles' reset.open) — inlined
+    // to keep this package CommonJS; ansi-styles v6+ is pure ESM and can't be required.
+    return has256 ? '\u001b[38;5;104m' + s + '\u001b[0m' : chalk.magenta(s)
   },
 }
 
