@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.10](https://github.com/heroku/heroku-cli-color/compare/color-v2.0.9...color-v2.0.10) (2026-11-09)
+
+
+### Dependencies
+
+* bump tslib from 2.8.1 to 2.9.1 ([#191](https://github.com/heroku/heroku-cli-color/issues/191)) ([c98c1ee](https://github.com/heroku/heroku-cli-color/commit/c98c1ee3c70c24e784bcaf16757bb8fa062854d1))
+
 ## [2.0.9](https://github.com/heroku/heroku-cli-color/compare/color-v2.0.8...color-v2.0.9) (2026-09-22)
 
 
