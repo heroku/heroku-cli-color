@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.11](https://github.com/heroku/heroku-cli-color/compare/color-v2.0.10...color-v2.0.11) (2026-11-20)
+
+
+### Dependencies
+
+* bump minimatch and eslint ([#195](https://github.com/heroku/heroku-cli-color/issues/195)) ([1b51ad9](https://github.com/heroku/heroku-cli-color/commit/1b51ad93a99f4d9e0625f4d90f26a82727e5f17d))
+
 ## [2.0.10](https://github.com/heroku/heroku-cli-color/compare/color-v2.0.9...color-v2.0.10) (2026-11-09)
 
 
